@@ -110,7 +110,7 @@ localDateDecoder(fmt"FOOBAR")
 [`ZonedDateTime`]:https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html
 [`LocalDate`]:https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
 [`LocalTime`]:https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html
-[`DateTimeFormatter`]:http://joda-time.sourceforge.net/apidocs/org/joda/time/format/DateTimeFormatter.html
+[`DateTimeFormatter`]:https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/format/DateTimeFormatter.html
 [`CellDecoder`]:{{ site.baseurl }}/api/kantan/csv/package$$CellDecoder.html
 [`CellEncoder`]:{{ site.baseurl }}/api/kantan/csv/package$$CellEncoder.html
 [`CellCodec`]:{{ site.baseurl }}/api/kantan/csv/package$$CellCodec.html
