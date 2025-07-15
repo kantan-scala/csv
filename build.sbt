@@ -4,7 +4,6 @@ enablePlugins(DocumentationPlugin)
 
 libraryDependencies ++= Seq(
   "joda-time" % "joda-time" % "2.14.0",
-  "io.github.kantan-scala" %% "kantan.csv" % kantanCsvVersion,
   "io.github.kantan-scala" %% "kantan.csv-java8" % kantanCsvVersion,
   "io.github.kantan-scala" %% "kantan.csv-scalaz" % kantanCsvVersion,
   "io.github.kantan-scala" %% "kantan.csv-cats" % kantanCsvVersion,
