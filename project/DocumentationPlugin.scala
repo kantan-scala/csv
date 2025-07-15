@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import com.github.sbt.sbtghpages.GhpagesPlugin
-import com.github.sbt.sbtghpages.GhpagesPlugin.autoImport.*
 import com.typesafe.sbt.site.SitePlugin
 import com.typesafe.sbt.site.SitePlugin.autoImport.makeSite
 import com.typesafe.sbt.site.SitePlugin.autoImport.siteSubdirName
@@ -32,7 +30,6 @@ import sbt.ScopeFilter.ProjectFilter
   *
   * Enabling this will set things up so that:
   *   - `makeSite` compiles all mdoc files and builds a complete documentation site.
-  *   - `ghpagesPushSite` generates the site and pushes it to the current repository's github pages.
   */
 object DocumentationPlugin extends AutoPlugin {
 
@@ -40,9 +37,10 @@ object DocumentationPlugin extends AutoPlugin {
     noTrigger
 
   override def requires: Plugins =
-    PreprocessPlugin && UnpublishedPlugin && GhpagesPlugin && MdocPlugin
+    PreprocessPlugin && MdocPlugin
 
   object autoImport {
+    def kantanCsvVersion = "0.9.0"
 
     /** This is mostly meant as an internal setting, initialised if `scmInfo` is set. But you can override it. */
     val docSourceUrl: SettingKey[Option[String]] = settingKey("scalac -doc-source-url parameter")
@@ -59,7 +57,7 @@ object DocumentationPlugin extends AutoPlugin {
   import autoImport.*
 
   override def projectSettings: Seq[Setting[?]] =
-    scaladocSettings ++ mdocSettings ++ ghpagesSettings ++ siteSettings
+    scaladocSettings ++ mdocSettings ++ siteSettings
 
   def siteSettings: Seq[Setting[?]] =
     Seq(
@@ -68,19 +66,10 @@ object DocumentationPlugin extends AutoPlugin {
           "*.woff" | "*.woff2" | "*.otf",
       // Configures task dependencies: doc → makeSite → mdoc
       makeSite := makeSite.dependsOn(mdocSite).value,
-      doc := (Compile / doc).dependsOn(SitePlugin.autoImport.makeSite).value,
       // Use a "managed" source directory for preprocessing - we want all documentation to be preprocessed, and the only
       // way I found to achieve that is to have all md files to be copied / generated to the same directory, and *then*
       // preprocess that.
       Preprocess / sourceDirectory := resourceManaged.value / "main" / "site-preprocess"
-    )
-
-  def ghpagesSettings: Seq[Setting[?]] =
-    Seq(
-      // We want ghpages to run jekyll for us - this means our build has zero dependency on non-JVM tools.
-      ghpagesNoJekyll := false,
-      // Makes sure we run makeSite before ghpagesPushSite, as I've been known to push out-of-date doc.
-      ghpagesPushSite := ghpagesPushSite.dependsOn(makeSite).value
     )
 
   def mdocSettings: Seq[Setting[?]] =
@@ -96,7 +85,7 @@ object DocumentationPlugin extends AutoPlugin {
       mdocSiteOut := "./",
       mdocIn := (Compile / sourceDirectory).value / "mdoc",
       mdocVariables := Map(
-        "VERSION" -> version.value
+        "VERSION" -> kantanCsvVersion
       ),
       addMappingsToSiteDir(mdocSite, mdocSiteOut)
     )
