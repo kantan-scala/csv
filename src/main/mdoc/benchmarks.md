@@ -47,7 +47,7 @@ in its optimised-for use case. That is to say, the fact that it's not a clear wi
 invalidate [their own results](https://github.com/uniVocity/csv-parsers-comparison).
 
 ## Benchmark tool
-All benchmarks were executed through [jmh](http://openjdk.java.net/projects/code-tools/jmh/), a fairly powerful tool
+All benchmarks were executed through [jmh](https://github.com/openjdk/jmh), a fairly powerful tool
 that helps mitigate various factors that can make results unreliable - unpredictable JIT optimisation, lazy JVM
 initialisations, ...
 
