@@ -33,7 +33,7 @@ The following instance for cats type classes are provided:
 [`SemigroupK`]:https://typelevel.org/cats/api/cats/Foldable.html
 [`Show`]:https://typelevel.org/cats/api/cats/Show.html
 [`Eq`]:https://typelevel.org/cats/api/cats/kernel/Eq.html
-[`Contravariant`]:http://typelevel.org/cats/api/cats/Contravariant.html
+[`Contravariant`]:https://typelevel.org/cats/api/cats/Contravariant.html
 [`CellEncoder`]:{{ site.baseurl }}/api/kantan/csv/package$$CellEncoder.html
 [`CellDecoder`]:{{ site.baseurl }}/api/kantan/csv/CellDecoder$.html
 [`RowDecoder`]:{{ site.baseurl }}/api/kantan/csv/package$$RowDecoder.html
