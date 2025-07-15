@@ -24,11 +24,11 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/jekyll-build-pages@v1
         with:
-          destination: "target/site"
+          source: "target/site"
       - uses: actions/upload-pages-artifact@v3
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
         with:
-          path: "target/site"
+          path: "_site"
   deploy:
     needs: test
     timeout-minutes: 10
