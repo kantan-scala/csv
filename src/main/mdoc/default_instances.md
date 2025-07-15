@@ -158,11 +158,11 @@ The following types have an instance of [`CsvSink`] out of the box:
 [`CsvSink`]:{{ site.baseurl }}/api/kantan/csv/CsvSink.html
 [`DateFormat`]:https://docs.oracle.com/javase/7/docs/api/java/text/DateFormat.html
 [`CsvSource`]:{{ site.baseurl }}/api/kantan/csv/CsvSource.html
-[`Option`]:http://www.scala-lang.org/api/current/scala/Option.html
-[`Either`]:http://www.scala-lang.org/api/current/scala/util/Either.html
+[`Option`]:https://www.scala-lang.org/api/current/scala/Option.html
+[`Either`]:https://www.scala-lang.org/api/current/scala/util/Either.html
 [`Path`]:https://docs.oracle.com/javase/7/docs/api/java/nio/file/Path.html
-[`BigInt`]:http://www.scala-lang.org/api/current/scala/math/BigInt.html
-[`BigDecimal`]:http://www.scala-lang.org/api/current/scala/math/BigDecimal.html
+[`BigInt`]:https://www.scala-lang.org/api/current/scala/math/BigInt.html
+[`BigDecimal`]:https://www.scala-lang.org/api/current/scala/math/BigDecimal.html
 [`Byte`]:https://docs.oracle.com/javase/7/docs/api/java/lang/Byte.html
 [`Char`]:https://docs.oracle.com/javase/7/docs/api/java/lang/Character.html
 [`Boolean`]:https://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html
@@ -175,6 +175,6 @@ The following types have an instance of [`CsvSink`] out of the box:
 [`UUID`]:https://docs.oracle.com/javase/7/docs/api/java/util/UUID.html
 [`URL`]:https://docs.oracle.com/javase/7/docs/api/java/net/URL.html
 [`URI`]:https://docs.oracle.com/javase/7/docs/api/java/net/URI.html
-[`CanBuildFrom`]:http://www.scala-lang.org/api/current/scala/collection/generic/CanBuildFrom.html
-[`TraversableOnce`]:http://www.scala-lang.org/api/current/scala/collection/TraversableOnce.html
+[`CanBuildFrom`]:https://www.scala-lang.org/api/current/scala/collection/generic/CanBuildFrom.html
+[`TraversableOnce`]:https://www.scala-lang.org/api/current/scala/collection/TraversableOnce.html
 [`Date`]:https://docs.oracle.com/javase/7/docs/api/java/util/Date.html

@@ -62,7 +62,7 @@ If you want to learn more about:
 * [encoding collections as rows](collections_as_rows.html)
 * [how we were able to turn a `URL` into CSV data](csv_sources.html)
 
-[`List`]:http://www.scala-lang.org/api/current/scala/collection/immutable/List.html
+[`List`]:https://www.scala-lang.org/api/current/scala/collection/immutable/List.html
 [`CsvReader`]:{{ site.baseurl }}/api/kantan/csv/package$$CsvReader.html
 [`CellDecoder`]:{{ site.baseurl }}/api/kantan/csv/CellDecoder$.html
 [`ReadResult`]:{{ site.baseurl }}/api/kantan/csv/ReadResult$.html

@@ -67,4 +67,4 @@ If you want to learn more about:
 [`asCsv`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvRowsOps.html#asCsv(sep:Char,header:Seq[String])(implicitea:kantan.csv.RowEncoder[A],implicite:kantan.csv.engine.WriterEngine):String
 [`writeCsv`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvSinkOps.html#writeCsv[B](rows:TraversableOnce[B],sep:Char,header:Seq[String])(implicitevidence$2:kantan.csv.RowEncoder[B],implicitoa:kantan.csv.CsvSink[A],implicite:kantan.csv.engine.WriterEngine):Unit
 [`CellEncoder`]:{{ site.baseurl }}/api/kantan/csv/package$$CellEncoder.html
-[`DateTime`]:http://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html
+[`DateTime`]:https://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html

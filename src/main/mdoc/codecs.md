@@ -65,7 +65,7 @@ val csv = ps.asCsv(rfc)
 csv.readCsv[List, Person](rfc)
 ```
 
-[`DateTime`]:http://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html
+[`DateTime`]:https://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html
 [`CellCodec`]:{{ site.baseurl }}/api/kantan/csv/package$$CellCodec.html
 [`RowCodec`]:{{ site.baseurl }}/api/kantan/csv/package$$RowCodec.html
 [`RowDecoder`]:{{ site.baseurl }}/api/kantan/csv/package$$RowDecoder.html

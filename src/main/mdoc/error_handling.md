@@ -89,14 +89,14 @@ Following the same general idea, one could use [`Option`] for fields that are no
 This strategy is not always possible, but is good to keep in mind for these cases where it can be applied.
 
 
-[`List`]:http://www.scala-lang.org/api/current/scala/collection/immutable/List.html
+[`List`]:https://www.scala-lang.org/api/current/scala/collection/immutable/List.html
 [`asUnsafeCsvReader`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvSourceOps.html#asUnsafeCsvReader[B](sep:Char,header:Boolean)(implicitevidence$2:kantan.csv.RowDecoder[B],implicitia:kantan.csv.CsvSource[A],implicite:kantan.csv.engine.ReaderEngine):kantan.csv.CsvReader[B]
 [`ReadResult`]:{{ site.baseurl }}/api/kantan/csv/ReadResult$.html
 [`collect`]:http://nrinaudo.github.io/kantan.codecs/api/kantan/codecs/resource/ResourceIterator.html#collect[B](f:PartialFunction[A,B]):kantan.codecs.resource.ResourceIterator[B]
 [`filter`]:http://nrinaudo.github.io/kantan.codecs/api/kantan/codecs/resource/ResourceIterator.html#filter(p:A=%3EBoolean):kantan.codecs.resource.ResourceIterator[A]
 [`map`]:http://nrinaudo.github.io/kantan.codecs/api/kantan/codecs/resource/ResourceIterator.html#map[B](f:A=%3EB):kantan.codecs.resource.ResourceIterator[B]
-[`Either`]:http://www.scala-lang.org/api/current/scala/util/Either.html
-[`Option`]:http://www.scala-lang.org/api/current/scala/Option.html
+[`Either`]:https://www.scala-lang.org/api/current/scala/util/Either.html
+[`Option`]:https://www.scala-lang.org/api/current/scala/Option.html
 [`sequence`]:{{ site.baseurl }}/api/kantan/csv/ReadResult$.html#sequence[S,M[X]%3C:TraversableOnce[X]](rs:M[Either[F,S]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[Either[F,S]],S,M[S]]):Either[F,M[S]]
 [`ReadError`]:{{ site.baseurl }}/api/kantan/csv/ReadError.html
-[`Right`]:http://www.scala-lang.org/api/current/scala/util/Right.html
+[`Right`]:https://www.scala-lang.org/api/current/scala/util/Right.html

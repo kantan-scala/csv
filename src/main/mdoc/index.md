@@ -5,11 +5,11 @@ layout: index
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.kantan-scala/kantan.csv_2.13/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.kantan-scala/kantan.csv_2.13)
 
 kantan.csv is a library for CSV parsing and serialization written in the
-[Scala programming language](http://www.scala-lang.org).
+[Scala programming language](https://www.scala-lang.org).
 
 ## Getting started
 
-kantan.csv is currently available for Scala 2.12 and 2.13.
+kantan.csv is currently available for Scala 2.13 and 3.
 
 The current version is `@VERSION@`, which can be added to your project with one or more of the following line(s)
 in your SBT build file:

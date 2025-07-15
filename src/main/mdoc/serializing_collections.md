@@ -60,5 +60,5 @@ If you want to learn more about:
 
 [`asCsvWriter`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvSinkOps.html#asCsvWriter[B](sep:Char,header:Seq[String])(implicitevidence$1:kantan.csv.RowEncoder[B],implicitoa:kantan.csv.CsvSink[A],implicite:kantan.csv.engine.WriterEngine):kantan.csv.CsvWriter[B]
 [`writeCsv`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvSinkOps.html#writeCsv[B](rows:TraversableOnce[B],sep:Char,header:Seq[String])(implicitevidence$2:kantan.csv.RowEncoder[B],implicitoa:kantan.csv.CsvSink[A],implicite:kantan.csv.engine.WriterEngine):Unit
-[`TraversableOnce`]:http://www.scala-lang.org/api/current/scala/collection/TraversableOnce.html
+[`TraversableOnce`]:https://www.scala-lang.org/api/current/scala/collection/TraversableOnce.html
 [`asCsv`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvRowsOps.html#asCsv(sep:Char,header:Seq[String])(implicitea:kantan.csv.RowEncoder[A],implicite:kantan.csv.engine.WriterEngine):String

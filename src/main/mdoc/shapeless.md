@@ -110,4 +110,4 @@ In the following example:
 [`CellCodec`]:{{ site.baseurl }}/api/kantan/csv/package$$CellCodec.html
 [`CellDecoder`]:{{ site.baseurl }}/api/kantan/csv/CellDecoder$.html
 [`CellEncoder`]:{{ site.baseurl }}/api/kantan/csv/package$$CellEncoder.html
-[`Tuple2`]:http://www.scala-lang.org/api/current/scala/Tuple2.html
+[`Tuple2`]:https://www.scala-lang.org/api/current/scala/Tuple2.html

@@ -46,6 +46,6 @@ If you want to learn more about:
 * [how we were able to turn a `File` into a `CsvWriter`](csv_sinks.html)
 
 [`CellEncoder`]:{{ site.baseurl }}/api/kantan/csv/package$$CellEncoder.html
-[`List`]:http://www.scala-lang.org/api/current/scala/collection/immutable/List.html
+[`List`]:https://www.scala-lang.org/api/current/scala/collection/immutable/List.html
 [`RowEncoder`]:{{ site.baseurl }}/api/kantan/csv/package$$RowEncoder.html
 [`encoder`]:{{ site.baseurl }}/api/kantan/csv/RowEncoder$.html#encoder[C,A1,A2,A3,A4](i1:Int,i2:Int,i3:Int,i4:Int)(f:C=>(A1,A2,A3,A4))(implicitevidence$7:kantan.csv.CellEncoder[A1],implicitevidence$8:kantan.csv.CellEncoder[A2],implicitevidence$9:kantan.csv.CellEncoder[A3],implicitevidence$10:kantan.csv.CellEncoder[A4]):kantan.csv.RowEncoder[C]

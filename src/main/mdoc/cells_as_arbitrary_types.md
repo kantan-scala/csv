@@ -62,5 +62,5 @@ If you want to learn more about:
 [`CellDecoder`]:{{ site.baseurl }}/api/kantan/csv/package$$CellDecoder.html
 [`asCsvReader`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvSourceOps.html#asCsvReader[B](sep:Char,header:Boolean)(implicitevidence$1:kantan.csv.RowDecoder[B],implicitia:kantan.csv.CsvSource[A],implicite:kantan.csv.engine.ReaderEngine):kantan.csv.CsvReader[kantan.csv.ReadResult[B]]
 [`readCsv`]:{{ site.baseurl }}/api/kantan/csv/ops/CsvSourceOps.html#readCsv[C[_],B](sep:Char,header:Boolean)(implicitevidence$3:kantan.csv.RowDecoder[B],implicitia:kantan.csv.CsvSource[A],implicite:kantan.csv.engine.ReaderEngine,implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,kantan.csv.ReadResult[B],C[kantan.csv.ReadResult[B]]]):C[kantan.csv.ReadResult[B]]
-[`List`]:http://www.scala-lang.org/api/current/scala/collection/immutable/List.html
-[`DateTime`]:http://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html
+[`List`]:https://www.scala-lang.org/api/current/scala/collection/immutable/List.html
+[`DateTime`]:https://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html
