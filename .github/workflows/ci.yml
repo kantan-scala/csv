@@ -21,6 +21,10 @@ jobs:
           distribution: adopt
       - uses: sbt/setup-sbt@v1
       - run: sbt -v scalafmtSbtCheck makeSite
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          destination: "target/site"
       - uses: actions/upload-pages-artifact@v3
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
         with:
