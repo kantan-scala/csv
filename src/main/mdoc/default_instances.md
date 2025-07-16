@@ -129,7 +129,7 @@ The following types have an instance of [`CsvSource`] out of the box:
 * [`InputStream`]
 * [`File`]
 * `Array[Byte]`
-* `Array[Char`]
+* `Array[Char]`
 * [`Path`]
 * [`String`]
 * [`URL`]
