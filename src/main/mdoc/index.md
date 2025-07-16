@@ -2,7 +2,7 @@
 layout: index
 ---
 
-![Maven Central Version](https://img.shields.io/maven-central/v/io.github.kantan-scala/kantan.csv_3?style=flat)
+[![Maven Central Version](https://img.shields.io/maven-central/v/io.github.kantan-scala/kantan.csv_3?style=flat)](https://central.sonatype.com/artifact/io.github.kantan-scala/kantan.csv_3)
 
 kantan.csv is a library for CSV parsing and serialization written in the
 [Scala programming language](https://www.scala-lang.org).
