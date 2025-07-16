@@ -52,7 +52,7 @@ val reader = rawData.asCsvReader[Car](rfc.withHeader)
 Let's make sure this worked by printing all decoded rows:
 
 ```scala mdoc
-reader.foreach(println _)
+reader.foreach(println)
 ```
 
 As we said before though, this was a particularly advantageous scenario. How would we deal with a `Car` case class
@@ -77,7 +77,7 @@ that's precisely the `apply` method declared in the companion object.
 Let's verify that this worked as expected:
 
 ```scala mdoc
-rawData.asCsvReader[Car2](rfc.withHeader).foreach(println _)
+rawData.asCsvReader[Car2](rfc.withHeader).foreach(println)
 ```
 
 ## What to read next

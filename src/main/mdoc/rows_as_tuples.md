@@ -41,7 +41,7 @@ val reader = rawData.asCsvReader[Car](rfc.withHeader)
 And now that we have a [`CsvReader`] on the data, we can simply iterate through it:
 
 ```scala mdoc
-reader.foreach(println _)
+reader.foreach(println)
 ```
 
 ## What to read next

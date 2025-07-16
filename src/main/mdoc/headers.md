@@ -51,7 +51,7 @@ indexes, so we need a [`HeaderDecoder`].
 Here's how we declare one:
 
 ```scala mdoc:silent
-implicit val carDecoder: HeaderDecoder[Car] = HeaderDecoder.decoder("Year", "Make", "Model", "Price", "Description")(Car.apply _)
+implicit val carDecoder: HeaderDecoder[Car] = HeaderDecoder.decoder("Year", "Make", "Model", "Price", "Description")(Car.apply)
 ```
 
 Note how this takes two parameter lists:
@@ -63,7 +63,7 @@ Through the magic of type classes, kantan.csv works out what types are expected 
 desired result:
 
 ```scala mdoc
-rawData.asCsvReader[Car](rfc.withHeader).foreach(println _)
+rawData.asCsvReader[Car](rfc.withHeader).foreach(println)
 ```
 
 ## Creating an encoder
@@ -72,7 +72,7 @@ In a similar fashion, you can create a [`HeaderEncoder`] to have kantan.csv auto
 serializing:
 
 ```scala mdoc:silent
-implicit val carEncoder: HeaderEncoder[Car] = HeaderEncoder.caseEncoder("Year", "Make", "Model", "Price", "Description")(Car.unapply _)
+implicit val carEncoder: HeaderEncoder[Car] = HeaderEncoder.caseEncoder("Year", "Make", "Model", "Price", "Description")(Car.unapply)
 ```
 
 This lets you write:
@@ -86,7 +86,7 @@ List(Car(1999, "Ford", "E350", 3000F, Some("ac, abs, moon"))).asCsv(rfc.withHead
 In case you need both a [`HeaderDecoder`] and a [`HeaderEncoder`], you can also create a [`HeaderCodec`]:
 
 ```scala mdoc:silent
-val carCodec: HeaderCodec[Car] = HeaderCodec.caseCodec("Year", "Make", "Model", "Price", "Description")(Car.apply _)(Car.unapply _)
+val carCodec: HeaderCodec[Car] = HeaderCodec.caseCodec("Year", "Make", "Model", "Price", "Description")(Car.apply)(Car.unapply)
 ```
 
 [`HeaderDecoder`]:{{ site.baseurl }}/api/kantan/csv/HeaderDecoder.html

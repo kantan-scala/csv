@@ -42,7 +42,7 @@ This is important for CSV data that contains a header row.
 Now that we have our [`CsvReader`] instance, we can consume it - by, say, printing each row:
 
 ```scala mdoc
-reader.foreach(println _)
+reader.foreach(println)
 ```
 
 Note that each result is wrapped in an instance of [`ReadResult`]. This allows decoding to be entirely safe - no

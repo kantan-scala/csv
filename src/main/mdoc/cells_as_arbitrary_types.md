@@ -49,7 +49,7 @@ implicit val jodaDateTime: CellDecoder[DateTime] = {
 And we can now decode CSV data composed of dates:
 
 ```scala mdoc
-"2009-01-06,2009-01-07\n2009-01-08,2009-01-09".asCsvReader[List[DateTime]](rfc).foreach(println _)
+"2009-01-06,2009-01-07\n2009-01-08,2009-01-09".asCsvReader[List[DateTime]](rfc).foreach(println)
 ```
 
 ## What to read next

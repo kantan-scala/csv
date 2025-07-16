@@ -47,7 +47,7 @@ implicit val carDecoder: RowDecoder[Car] = RowDecoder.ordered { (i: Int, ma: Str
 And we can now decode our data as usual:
 
 ```scala mdoc
-rawData.asCsvReader[Car](rfc.withHeader).foreach(println _)
+rawData.asCsvReader[Car](rfc.withHeader).foreach(println)
 ```
 
 The main reason this is the preferred solution is that it allows us never to have to think about individual cells in a
