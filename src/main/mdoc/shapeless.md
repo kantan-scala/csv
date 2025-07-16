@@ -5,7 +5,7 @@ section: tutorial
 sort_order: 25
 ---
 While kantan.csv goes out of its way to provide [default instances](default_instances.html) for as many types as it can,
-some are made problematic by my strict rule against runtime reflection. Fortunately, [shapeless](http://shapeless.io)
+some are made problematic by my strict rule against runtime reflection. Fortunately, [shapeless](https://github.com/milessabin/shapeless)
 provides _compile time_ reflection, which makes it possible for the `generic` module to automatically derive instances
 for more common types and patterns.
 
