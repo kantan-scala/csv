@@ -82,9 +82,14 @@ Creating a new instance of [`ReaderEngine`] is meant to be fairly straightforwar
 import kantan.csv.engine._
 import kantan.csv._
 
-implicit val readerEngine: ReaderEngine = ReaderEngine.from { (in: Reader, conf: CsvConfiguration) =>
-  kantan.codecs.resource.ResourceIterator.fromIterator(EasyCSV.read(in, conf.cellSeparator))
-}
+implicit val readerEngine: ReaderEngine =
+  ReaderEngine.from { (in: Reader, conf: CsvConfiguration) =>
+    kantan.codecs.resource.ResourceIterator.fromIterator(
+      javaIterator(
+        EasyCSV.read(in, conf.cellSeparator)
+      )
+    )
+  }
 ```
 
 ### Serializing
