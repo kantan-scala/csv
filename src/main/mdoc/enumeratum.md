@@ -16,7 +16,7 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-enumeratum" % "@V
 When working with enumerations of type `Enum`, you should import the following package:
 
 ```scala mdoc:silent
-import kantan.csv.enumeratum._
+import kantan.csv.enumeratum.*
 ```
 
 And that's pretty much it. You can now encode and decode your enumeration directly.
@@ -24,7 +24,7 @@ And that's pretty much it. You can now encode and decode your enumeration direct
 Let's first set our types up:
 
 ```scala mdoc:silent
-import enumeratum._
+import enumeratum.*
 
 sealed trait DummyEnum extends EnumEntry
 
@@ -32,9 +32,9 @@ object DummyEnum extends Enum[DummyEnum] {
 
   val values = findValues
 
-  case object Hello   extends DummyEnum
+  case object Hello extends DummyEnum
   case object GoodBye extends DummyEnum
-  case object Hi      extends DummyEnum
+  case object Hi extends DummyEnum
 
 }
 ```
@@ -42,8 +42,8 @@ object DummyEnum extends Enum[DummyEnum] {
 And a few further imports, to bring our enumeration and the kantan.csv syntax in scope:
 
 ```scala mdoc:silent
+import kantan.csv.ops.*
 import kantan.csv.rfc
-import kantan.csv.ops._
 ```
 
 
@@ -62,7 +62,7 @@ We can then simply write the following:
 For enumerations of type `ValueEnum`, you should import the following package:
 
 ```scala mdoc:silent:reset
-import kantan.csv.enumeratum.values._
+import kantan.csv.enumeratum.values.*
 ```
 
 And that's pretty much it. You can now encode and decode your enumeration directly.
@@ -70,7 +70,7 @@ And that's pretty much it. You can now encode and decode your enumeration direct
 Let's first set our types up:
 
 ```scala mdoc:silent
-import enumeratum.values._
+import enumeratum.values.*
 
 sealed abstract class Greeting(val value: Int) extends IntEnumEntry
 
@@ -78,10 +78,10 @@ object Greeting extends IntEnum[Greeting] {
 
   val values = findValues
 
-  case object Hello   extends Greeting(1)
+  case object Hello extends Greeting(1)
   case object GoodBye extends Greeting(2)
-  case object Hi      extends Greeting(3)
-  case object Bye     extends Greeting(4)
+  case object Hi extends Greeting(3)
+  case object Bye extends Greeting(4)
 
 }
 ```
@@ -89,8 +89,8 @@ object Greeting extends IntEnum[Greeting] {
 And a few further imports, to bring our enumeration and the kantan.csv syntax in scope:
 
 ```scala mdoc:silent
+import kantan.csv.ops.*
 import kantan.csv.rfc
-import kantan.csv.ops._
 ```
 
 We can then simply write the following:

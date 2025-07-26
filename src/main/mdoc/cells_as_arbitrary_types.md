@@ -24,8 +24,8 @@ And so, when [`asCsvReader`] or [`readCsv`] are asked to turn a row into a [`Lis
 corresponding implicit [`CellDecoder[A]`][`CellDecoder`] and rely on it for decoding:
 
 ```scala mdoc
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 
 "1,2,3\n4,5,6".readCsv[List, List[Int]](rfc)
 ```
@@ -36,7 +36,7 @@ In order to add support to non-standard types, all you need to do is implement a
 that type. Let's do so, for example, for Joda [`DateTime`]:
 
 ```scala mdoc:silent
-import kantan.csv._
+import kantan.csv.*
 import org.joda.time.DateTime
 import org.joda.time.format.ISODateTimeFormat
 
@@ -49,7 +49,9 @@ implicit val jodaDateTime: CellDecoder[DateTime] = {
 And we can now decode CSV data composed of dates:
 
 ```scala mdoc
-"2009-01-06,2009-01-07\n2009-01-08,2009-01-09".asCsvReader[List[DateTime]](rfc).foreach(println)
+"2009-01-06,2009-01-07\n2009-01-08,2009-01-09"
+  .asCsvReader[List[DateTime]](rfc)
+  .foreach(println)
 ```
 
 ## What to read next

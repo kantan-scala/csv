@@ -29,7 +29,8 @@ import sbt.ScopeFilter.ProjectFilter
 /** Plugin for documentation projects.
   *
   * Enabling this will set things up so that:
-  *   - `makeSite` compiles all mdoc files and builds a complete documentation site.
+  *   - `makeSite` compiles all mdoc files and builds a complete documentation
+  *     site.
   */
 object DocumentationPlugin extends AutoPlugin {
 
@@ -42,16 +43,26 @@ object DocumentationPlugin extends AutoPlugin {
   object autoImport {
     def kantanCsvVersion = "0.10.0"
 
-    /** This is mostly meant as an internal setting, initialised if `scmInfo` is set. But you can override it. */
-    val docSourceUrl: SettingKey[Option[String]] = settingKey("scalac -doc-source-url parameter")
+    /** This is mostly meant as an internal setting, initialised if `scmInfo` is
+      * set. But you can override it.
+      */
+    val docSourceUrl: SettingKey[Option[String]] = settingKey(
+      "scalac -doc-source-url parameter"
+    )
 
-    def inProjectsIf(predicate: Boolean)(projects: ProjectReference*): ProjectFilter =
+    def inProjectsIf(
+      predicate: Boolean
+    )(projects: ProjectReference*): ProjectFilter =
       if(predicate) inProjects(projects*)
       else inProjects()
     val mdocSite: TaskKey[Seq[(File, String)]] =
-      taskKey[Seq[(File, String)]]("create mdoc documentation in a way that lets sbt-site grab it")
+      taskKey[Seq[(File, String)]](
+        "create mdoc documentation in a way that lets sbt-site grab it"
+      )
     val mdocSiteOut: SettingKey[String] =
-      settingKey[String]("name of the directory in which sbt-site will store mdoc documentation")
+      settingKey[String](
+        "name of the directory in which sbt-site will store mdoc documentation"
+      )
   }
 
   import autoImport.*
@@ -77,7 +88,8 @@ object DocumentationPlugin extends AutoPlugin {
       mdocSite := {
         val out = mdocOut.value
         for {
-          (file, name) <- (out ** AllPassFilter --- out).pair(Path.relativeTo(out))
+          (file, name) <- (out ** AllPassFilter --- out)
+            .pair(Path.relativeTo(out))
         } yield file -> name
       },
       mdocSite := mdocSite.dependsOn(mdoc.toTask(" ")).value,
@@ -92,6 +104,8 @@ object DocumentationPlugin extends AutoPlugin {
 
   def scaladocSettings: Seq[Setting[?]] =
     Seq(
-      docSourceUrl := scmInfo.value.map(i => s"${i.browseUrl}/tree/master€{FILE_PATH}.scala")
+      docSourceUrl := scmInfo.value.map(i =>
+        s"${i.browseUrl}/tree/master€{FILE_PATH}.scala"
+      )
     )
 }

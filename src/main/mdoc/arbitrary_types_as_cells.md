@@ -24,8 +24,8 @@ And so, when [`asCsvWriter`], [`writeCsv`] or [`asCsv`] are asked to turn a coll
 it looks for a corresponding implicit [`CellEncoder`] and relies on it for encoding:
 
 ```scala mdoc
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 
 List(List(1, 2, 3), List(4, 5, 6)).asCsv(rfc)
 ```
@@ -36,7 +36,7 @@ In order to add support to non-standard types, all you need to do is implement a
 that type. Let's do so, for example, for Joda [`DateTime`]:
 
 ```scala mdoc:silent
-import kantan.csv._
+import kantan.csv.*
 import org.joda.time.DateTime
 import org.joda.time.format.ISODateTimeFormat
 

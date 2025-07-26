@@ -16,14 +16,16 @@ We've seen before how to create a [CellEncoder](arbitrary_types_as_cells.html) a
 in one go:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 import org.joda.time.DateTime
 import org.joda.time.format.ISODateTimeFormat
 
 implicit val jodaDateTime: CellCodec[DateTime] = {
   val format = ISODateTimeFormat.date()
-  CellCodec.from(s => DecodeResult(format.parseDateTime(s)))(d => format.print(d))
+  CellCodec.from(s => DecodeResult(format.parseDateTime(s)))(d =>
+    format.print(d)
+  )
 }
 ```
 
@@ -48,13 +50,18 @@ however: all the helper methods we've seen for creating [`RowDecoder`] and [`Row
 ```scala mdoc:silent
 case class Person(id: Int, name: String, age: Int)
 
-val ps = List(Person(0, "Nicolas", 38), Person(1, "Kazuma", 1), Person(2, "John", 18))
+val ps = List(
+  Person(0, "Nicolas", 38),
+  Person(1, "Kazuma", 1),
+  Person(2, "John", 18)
+)
 ```
 
 We want to be able to both encode and decode that, so we can create a [`RowCodec[Person]`][`RowCodec`] instance:
 
 ```scala mdoc:silent
-implicit val personCodec: RowCodec[Person] = RowCodec.caseCodec(0, 2, 1)(Person.apply)(Person.unapply)
+implicit val personCodec: RowCodec[Person] =
+  RowCodec.caseCodec(0, 2, 1)(Person.apply)(Person.unapply)
 ```
 
 And with that one line, we're done:

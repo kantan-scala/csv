@@ -11,13 +11,17 @@ This is something that kantan.csv attempts to make as straightforward as possibl
 that needs to be serialized (see [this](case_classes_as_rows) if you're not clear what the following code is for):
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
-import kantan.csv.generic._
+import kantan.csv.*
+import kantan.csv.generic.*
+import kantan.csv.ops.*
 
 case class Person(id: Int, name: String, age: Int)
 
-val ps = List(Person(0, "Nicolas", 38), Person(1, "Kazuma", 1), Person(2, "John", 18))
+val ps = List(
+  Person(0, "Nicolas", 38),
+  Person(1, "Kazuma", 1),
+  Person(2, "John", 18)
+)
 ```
 
 All types that support the [`asCsvWriter`] method also support [`writeCsv`], which takes a collection of values and

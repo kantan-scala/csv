@@ -26,7 +26,13 @@ scala.io.Source.fromURL(rawData).mkString
 An obvious representation of each row in this data would be:
 
 ```scala mdoc:silent
-case class Car(year: Int, make: String, model: String, desc: Option[String], price: Float)
+case class Car(
+  year: Int,
+  make: String,
+  model: String,
+  desc: Option[String],
+  price: Float
+)
 ```
 
 We find ourselves with a particularly easy scenario to deal with: the rows in the CSV data and the fields in the target
@@ -42,9 +48,9 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-generic" % "@VERS
 Then, with the appropriate imports:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
-import kantan.csv.generic._
+import kantan.csv.*
+import kantan.csv.generic.*
+import kantan.csv.ops.*
 
 val reader = rawData.asCsvReader[Car](rfc.withHeader)
 ```
@@ -66,8 +72,9 @@ This cannot be derived automatically, and we need to provide an instance of [`Ro
 made easy by helper methods meant for just this problem, the various [`decoder`] methods:
 
 ```scala mdoc:silent
-import kantan.csv._
-implicit val car2Decoder: RowDecoder[Car2] = RowDecoder.decoder(1, 0, 2, 4)(Car2.apply)
+import kantan.csv.*
+implicit val car2Decoder: RowDecoder[Car2] =
+  RowDecoder.decoder(1, 0, 2, 4)(Car2.apply)
 ```
 
 The first parameter to [`decoder`] is a list of indexes that map CSV columns to case class fields. The second one

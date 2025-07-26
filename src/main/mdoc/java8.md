@@ -15,7 +15,7 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-java8" % "@VERSIO
 You then need to import the corresponding package:
 
 ```scala mdoc:silent
-import kantan.csv.java8._
+import kantan.csv.java8.*
 ```
 
 kantan.csv has default, ISO 8601 compliant [`CellDecoder`] and [`CellEncoder`] instances for the following types:
@@ -30,9 +30,9 @@ kantan.csv has default, ISO 8601 compliant [`CellDecoder`] and [`CellEncoder`] i
 Let's imagine for example that we want to extract dates from the following string:
 
 ```scala mdoc:silent
-import java.time._
-import kantan.csv._
-import kantan.csv.ops._
+import java.time.*
+import kantan.csv.*
+import kantan.csv.ops.*
 
 val plainInput = "1,1978-12-10\n2,2015-01-09"
 ```
@@ -49,11 +49,11 @@ It's also possible to declare your own [`CellDecoder`] and [`CellEncoder`] insta
 the following custom format:
 
 ```scala mdoc:reset:silent
+import java.time.*
 import java.time.format.DateTimeFormatter
-import java.time._
-import kantan.csv._
-import kantan.csv.java8._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.java8.*
+import kantan.csv.ops.*
 
 val input = "1,10-12-1978\n2,09-01-2015"
 

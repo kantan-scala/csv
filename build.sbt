@@ -2,6 +2,15 @@ scalaVersion := "2.13.16"
 
 enablePlugins(DocumentationPlugin)
 
+scalacOptions ++= {
+  scalaBinaryVersion.value match {
+    case "2.13" =>
+      Seq("-Xsource:3-cross")
+    case _ =>
+      Nil
+  }
+}
+
 libraryDependencies ++= Seq(
   "joda-time" % "joda-time" % "2.14.0",
   "io.github.kantan-scala" %% "kantan.csv-java8" % kantanCsvVersion,
@@ -14,3 +23,6 @@ libraryDependencies ++= Seq(
   "io.github.kantan-scala" %% "kantan.csv-jackson" % kantanCsvVersion,
   "io.github.kantan-scala" %% "kantan.csv-java8" % kantanCsvVersion
 )
+
+Compile / scalafmt / unmanagedSourceDirectories += mdocIn.value
+Compile / scalafmt / unmanagedSources ++= (mdocIn.value ** "*.md").get

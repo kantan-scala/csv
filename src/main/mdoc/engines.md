@@ -22,7 +22,7 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-jackson" % "@VERS
 You then need to bring the right implicits in scope through:
 
 ```scala mdoc:silent
-import kantan.csv.engine.jackson._
+import kantan.csv.engine.jackson.*
 ```
 
 You can tweak the behaviour of the underlying parsers and serializers by creating them through
@@ -41,7 +41,7 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-commons" % "@VERS
 You then need to bring the right implicits in scope through:
 
 ```scala mdoc:silent
-import kantan.csv.engine.commons._
+import kantan.csv.engine.commons.*
 ```
 
 You can tweak the behaviour of the underlying parsers and serializers by creating them through
@@ -54,7 +54,7 @@ and [`writerEngineFrom`]({{ site.baseurl }}/api/kantan/csv/engine/commons/index.
 For the purpose of this tutorial, let's make up an hypothetical CSV library, EasyCSV, that provides the following:
 
 ```scala mdoc:silent
-import java.io._
+import java.io.*
 
 object EasyCSV {
   trait EasyWriter {
@@ -62,7 +62,10 @@ object EasyCSV {
     def close(): Unit
   }
 
-  def read(reader: Reader, sep: Char): java.util.Iterator[Array[String]] with Closeable = ???
+  def read(
+    reader: Reader,
+    sep: Char
+  ): java.util.Iterator[Array[String]] with Closeable = ???
   def write(writer: Writer, sep: Char): EasyWriter = ???
 }
 ```
@@ -79,8 +82,8 @@ Creating a new instance of [`ReaderEngine`] is meant to be fairly straightforwar
 `(Reader, Char) => Iterator[Seq[String]]`, you can simply use [`ResourceIterator.fromIterator`]:
 
 ```scala mdoc:silent
-import kantan.csv.engine._
-import kantan.csv._
+import kantan.csv.*
+import kantan.csv.engine.*
 
 implicit val readerEngine: ReaderEngine =
   ReaderEngine.from { (in: Reader, conf: CsvConfiguration) =>
@@ -99,8 +102,11 @@ Serializing is very similar to parsing, except that instead of providing a [`Rea
 through [`CsvWriter.apply`]:
 
 ```scala mdoc:silent
-implicit val writerEngine: WriterEngine = WriterEngine.from { (writer: Writer, conf: CsvConfiguration) =>
-  CsvWriter(EasyCSV.write(writer, conf.cellSeparator))(_ write _.toArray)(_.close())
+implicit val writerEngine: WriterEngine = WriterEngine.from {
+  (writer: Writer, conf: CsvConfiguration) =>
+    CsvWriter(EasyCSV.write(writer, conf.cellSeparator))(_ write _.toArray)(
+      _.close()
+    )
 }
 ```
 

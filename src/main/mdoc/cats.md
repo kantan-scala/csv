@@ -16,7 +16,7 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-cats" % "@VERSION
 You then need to import the corresponding package:
 
 ```scala mdoc:silent
-import kantan.csv.cats._
+import kantan.csv.cats.*
 ```
 
 ## Cats instances
