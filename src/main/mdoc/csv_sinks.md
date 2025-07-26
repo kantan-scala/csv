@@ -23,9 +23,9 @@ If you can write such a function, you can trivially turn it into a valid instanc
 [`File`]:
 
 ```scala mdoc:silent
-import kantan.csv._
-import java.io._
-import scala.io._
+import java.io.*
+import kantan.csv.*
+import scala.io.*
 
 implicit def fileOutput(implicit c: Codec): CsvSink[File] =
   CsvSink.from(f => new OutputStreamWriter(new FileOutputStream(f), c.charSet))
@@ -38,8 +38,8 @@ an instance - in our example, [`File`] can easily be turned into an [`OutputStre
 a [`CsvSink`] instance. This is achieved through [`contramap`]:
 
 ```scala mdoc:reset:silent
-import kantan.csv._
-import java.io._
+import java.io.*
+import kantan.csv.*
 
 implicit val fileOutput: CsvSink[File] =
   CsvSink[OutputStream].contramap(f => new FileOutputStream(f))

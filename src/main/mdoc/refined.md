@@ -14,7 +14,7 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-refined" % "@VERS
 You then need to import the corresponding package:
 
 ```scala mdoc:silent
-import kantan.csv.refined._
+import kantan.csv.refined.*
 ```
 
 And that's pretty much it. You can now encode and decode refined types directly.
@@ -24,8 +24,8 @@ Let's first set our types up:
 ```scala mdoc:silent
 import eu.timepit.refined.api.Refined
 import eu.timepit.refined.numeric.Positive
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 
 type PositiveInt = Int Refined Positive
 ```

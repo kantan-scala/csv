@@ -18,9 +18,9 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-generic" % "@VERS
 Let's first declare the imports we'll need in the rest of this tutorial:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
-import kantan.csv.generic._
+import kantan.csv.*
+import kantan.csv.generic.*
+import kantan.csv.ops.*
 ```
 
 The rest of this post will be a simple list of supported types.
@@ -82,7 +82,8 @@ case class CustomTuple2[A, B](a: A, b: B)
 We can encode from and decode to that type for free:
 
 ```scala mdoc
-val decoded3 = "1,\n2,false".unsafeReadCsv[List, CustomTuple2[Int, Option[Boolean]]](rfc)
+val decoded3 =
+  "1,\n2,false".unsafeReadCsv[List, CustomTuple2[Int, Option[Boolean]]](rfc)
 
 decoded3.asCsv(rfc)
 ```
@@ -102,7 +103,10 @@ In the following example:
 * `CustomTuple2[String, Option[Boolean]]` has both, since it's a case class where all fields also do.
 
 ```scala mdoc
-"1,true\nfoobar,".unsafeReadCsv[List, (Int, Boolean) Or CustomTuple2[String, Option[Boolean]]](rfc)
+"1,true\nfoobar,"
+  .unsafeReadCsv[List, (Int, Boolean) Or CustomTuple2[String, Option[Boolean]]](
+    rfc
+  )
 ```
 
 [`RowDecoder`]:{{ site.baseurl }}/api/kantan/csv/RowDecoder$.html

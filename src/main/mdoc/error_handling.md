@@ -21,9 +21,9 @@ Let's first declare the basic things we need to decode such a CSV file (see [thi
 not make sense to you):
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
-import kantan.csv.generic._
+import kantan.csv.*
+import kantan.csv.generic.*
+import kantan.csv.ops.*
 
 case class Person(id: Int, name: String, flag: Boolean)
 

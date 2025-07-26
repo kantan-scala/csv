@@ -15,9 +15,9 @@ First, let's set up a type to encode as CSV (if the reason why the following cod
 [read up on it](case_classes_as_rows.html)).
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
-import kantan.csv.generic._
+import kantan.csv.*
+import kantan.csv.generic.*
+import kantan.csv.ops.*
 
 case class Person(id: Int, name: String, age: Int)
 ```
@@ -39,10 +39,11 @@ Now that we have a [`CsvWriter`], we can just send instances of `Person` to its 
 when we're done:
 
 ```scala mdoc:silent
-writer.write(Person(0, "Nicolas", 38)).
-       write(Person(1, "Kazuma", 1)).
-       write(Person(2, "John", 18)).
-       close()
+writer
+  .write(Person(0, "Nicolas", 38))
+  .write(Person(1, "Kazuma", 1))
+  .write(Person(2, "John", 18))
+  .close()
 ```
 
 Note that this is still one of kantan.csv's rough edges. This code throws, and there currently is no alternative.

@@ -12,7 +12,11 @@ Let's imagine that we have a list of values of type `Person` to encode:
 ```scala mdoc:silent
 case class Person(id: Int, name: String, age: Int)
 
-val ps = List(Person(0, "Nicolas", 38), Person(1, "Kazuma", 1), Person(2, "John", 18))
+val ps = List(
+  Person(0, "Nicolas", 38),
+  Person(1, "Kazuma", 1),
+  Person(2, "John", 18)
+)
 ```
 
 If we find ourselves in the easy case - that is, we don't mind a [shapeless] dependency *and* the expected order of
@@ -28,14 +32,15 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-generic" % "@VERS
 Then, with the appropriate imports:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
-import kantan.csv.generic._
+import kantan.csv.*
+import kantan.csv.generic.*
+import kantan.csv.ops.*
 
 // File in which we'll be writing the CSV data.
 val out = java.io.File.createTempFile("kantan.csv", "csv")
 
-val writer = out.asCsvWriter[Person](rfc.withHeader("Column 1", "Column 2", "Column 3"))
+val writer =
+  out.asCsvWriter[Person](rfc.withHeader("Column 1", "Column 2", "Column 3"))
 ```
 
 We're dealing with a list of values, which [`CsvWriter`] as a helper method for which we haven't seen before:
@@ -59,7 +64,8 @@ we're looking for the [`caseEncoder`] method of object [`RowEncoder`], which sim
 fields to their index in the CSV row and the case class' `unapply` method:
 
 ```scala mdoc:silent
-val personEncoder: RowEncoder[Person] = RowEncoder.caseEncoder(0, 2, 1)(Person.unapply)
+val personEncoder: RowEncoder[Person] =
+  RowEncoder.caseEncoder(0, 2, 1)(Person.unapply)
 ```
 
 ## What to read next

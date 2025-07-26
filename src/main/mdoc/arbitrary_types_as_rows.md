@@ -13,7 +13,11 @@ Let's write such a type for the purpose of this tutorial:
 ```scala mdoc:silent
 class Person(val id: Int, val name: String, val age: Int)
 
-val ps = List(new Person(0, "Nicolas", 38), new Person(1, "Kazuma", 1), new Person(2, "John", 18))
+val ps = List(
+  new Person(0, "Nicolas", 38),
+  new Person(1, "Kazuma", 1),
+  new Person(2, "John", 18)
+)
 ```
 
 We now have a [`List[Person]`][`List`] that we'd like to encode to CSV. This is done by providing an implicit instance
@@ -22,10 +26,11 @@ to use one of the helper methods defined in the [companion object]({{ site.baseu
 In our case, we want [`encoder`]:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 
-implicit val personEncoder: RowEncoder[Person] = RowEncoder.encoder(0, 2, 1)((p: Person) => (p.id, p.name, p.age))
+implicit val personEncoder: RowEncoder[Person] =
+  RowEncoder.encoder(0, 2, 1)((p: Person) => (p.id, p.name, p.age))
 ```
 
 kantan.csv will work out how to encode each individual field thanks to the [`CellEncoder`] mechanism describe in a

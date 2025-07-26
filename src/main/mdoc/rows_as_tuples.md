@@ -32,8 +32,8 @@ kantan.csv has out of the box support for decoding tuples, so you can simply pas
 [`asCsvReader`]:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 
 val reader = rawData.asCsvReader[Car](rfc.withHeader)
 ```

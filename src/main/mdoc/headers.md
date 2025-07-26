@@ -30,7 +30,13 @@ scala.io.Source.fromURL(rawData).mkString
 An obvious representation of each row in this data would be:
 
 ```scala mdoc:silent
-case class Car(year: Int, make: String, model: String, price: Float, desc: Option[String])
+case class Car(
+  year: Int,
+  make: String,
+  model: String,
+  price: Float,
+  desc: Option[String]
+)
 ```
 
 Note how we've made sure to swap `desc` and `price`, to make sure that they were not in the same order as in the CSV
@@ -39,8 +45,8 @@ file.
 Let's also add the usual kantan.csv imports:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 ```
 
 ## Creating a decoder
@@ -51,7 +57,10 @@ indexes, so we need a [`HeaderDecoder`].
 Here's how we declare one:
 
 ```scala mdoc:silent
-implicit val carDecoder: HeaderDecoder[Car] = HeaderDecoder.decoder("Year", "Make", "Model", "Price", "Description")(Car.apply)
+implicit val carDecoder: HeaderDecoder[Car] =
+  HeaderDecoder.decoder("Year", "Make", "Model", "Price", "Description")(
+    Car.apply
+  )
 ```
 
 Note how this takes two parameter lists:
@@ -72,13 +81,17 @@ In a similar fashion, you can create a [`HeaderEncoder`] to have kantan.csv auto
 serializing:
 
 ```scala mdoc:silent
-implicit val carEncoder: HeaderEncoder[Car] = HeaderEncoder.caseEncoder("Year", "Make", "Model", "Price", "Description")(Car.unapply)
+implicit val carEncoder: HeaderEncoder[Car] =
+  HeaderEncoder.caseEncoder("Year", "Make", "Model", "Price", "Description")(
+    Car.unapply
+  )
 ```
 
 This lets you write:
 
 ```scala mdoc
-List(Car(1999, "Ford", "E350", 3000F, Some("ac, abs, moon"))).asCsv(rfc.withHeader)
+List(Car(1999, "Ford", "E350", 3000F, Some("ac, abs, moon")))
+  .asCsv(rfc.withHeader)
 ```
 
 ## Creating a codec
@@ -86,7 +99,10 @@ List(Car(1999, "Ford", "E350", 3000F, Some("ac, abs, moon"))).asCsv(rfc.withHead
 In case you need both a [`HeaderDecoder`] and a [`HeaderEncoder`], you can also create a [`HeaderCodec`]:
 
 ```scala mdoc:silent
-val carCodec: HeaderCodec[Car] = HeaderCodec.caseCodec("Year", "Make", "Model", "Price", "Description")(Car.apply)(Car.unapply)
+val carCodec: HeaderCodec[Car] =
+  HeaderCodec.caseCodec("Year", "Make", "Model", "Price", "Description")(
+    Car.apply
+  )(Car.unapply)
 ```
 
 [`HeaderDecoder`]:{{ site.baseurl }}/api/kantan/csv/HeaderDecoder.html

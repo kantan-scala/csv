@@ -26,10 +26,11 @@ If you can write such a function, you can trivially turn it into a valid instanc
 strings:
 
 ```scala mdoc:silent
-import kantan.csv._
-import java.io._
+import java.io.*
+import kantan.csv.*
 
-implicit val stringSource: CsvSource[String] = CsvSource.from(s => ParseResult(new StringReader(s)))
+implicit val stringSource: CsvSource[String] =
+  CsvSource.from(s => ParseResult(new StringReader(s)))
 ```
 
 
@@ -39,10 +40,11 @@ has an instance. This is achieved either through [`contramap`] (if the transform
 [`econtramap`] (if, as with most IO-related things, it can fail). For example:
 
 ```scala mdoc:reset:silent
-import kantan.csv._
-import java.io._
+import java.io.*
+import kantan.csv.*
 
-implicit val stringInput: CsvSource[String] = CsvSource[Reader].contramap(s => new StringReader(s))
+implicit val stringInput: CsvSource[String] =
+  CsvSource[Reader].contramap(s => new StringReader(s))
 ```
 
 

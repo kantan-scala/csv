@@ -25,11 +25,17 @@ Our goal here is to parse this resource row by row. In order to do that, we must
 row as a case class. This is exactly what we did in a [previous tutorial](rows_as_case_classes.html):
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
-import kantan.csv.generic._
+import kantan.csv.*
+import kantan.csv.generic.*
+import kantan.csv.ops.*
 
-case class Car(year: Int, make: String, model: String, desc: Option[String], price: Float)
+case class Car(
+  year: Int,
+  make: String,
+  model: String,
+  desc: Option[String],
+  price: Float
+)
 ```
 
 Now that we have everything we need to decode the CSV data, here's how to turn it into something that is essentially

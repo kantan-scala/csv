@@ -16,7 +16,7 @@ libraryDependencies += "io.github.kantan-scala" %% "kantan.csv-scalaz" % "@VERSI
 You then need to import the corresponding package:
 
 ```scala mdoc:silent
-import kantan.csv.scalaz._
+import kantan.csv.scalaz.*
 ```
 
 ## `\/` codecs
@@ -30,9 +30,9 @@ By the same token, for any two types `A` and `B` that each have a [`CellDecoder`
 First, a few imports:
 
 ```scala mdoc:silent
-import scalaz._
-import kantan.csv._
-import kantan.csv.ops._
+import _root_.scalaz.*
+import kantan.csv.*
+import kantan.csv.ops.*
 ```
 
 We can then simply write the following:

@@ -23,7 +23,13 @@ scala.io.Source.fromURL(rawData).mkString
 Now, let's imagine we have a class that is not a case class into which we'd like to decode each row:
 
 ```scala mdoc:silent
-class Car(val year: Int, val make: String, val model: String, val desc: Option[String], val price: Float) {
+class Car(
+  val year: Int,
+  val make: String,
+  val model: String,
+  val desc: Option[String],
+  val price: Float
+) {
   override def toString = s"Car($year, $make, $model, $desc, $price)"
 }
 ```
@@ -36,11 +42,12 @@ the various helper methods defined in its [companion object]({{ site.baseurl }}/
 our current task, we need to decode a row into 5 values and stick them into `Car`'s constructor: we want [`ordered`].
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 
-implicit val carDecoder: RowDecoder[Car] = RowDecoder.ordered { (i: Int, ma: String, mo: String, d: Option[String], p: Float) =>
-  new Car(i, ma, mo, d, p)
+implicit val carDecoder: RowDecoder[Car] = RowDecoder.ordered {
+  (i: Int, ma: String, mo: String, d: Option[String], p: Float) =>
+    new Car(i, ma, mo, d, p)
 }
 ```
 

@@ -22,8 +22,8 @@ scala.io.Source.fromURL(rawData).mkString
 In order to turn this into useful types, all we need to do is retrieve a [`CsvReader`] instance:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 
 val reader = rawData.asCsvReader[List[Float]](rfc)
 ```

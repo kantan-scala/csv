@@ -16,7 +16,7 @@ The only way (that I know of) to force Excel to use the right encoding when open
 Since version 0.1.18, kantan.csv has full support for BOMs, enabled by importing the following package:
 
 ```scala mdoc:silent
-import kantan.codecs.resource.bom._
+import kantan.codecs.resource.bom.*
 ```
 
 Once that's done, all IO operations performed by kantan.csv will be BOM aware:
@@ -28,8 +28,8 @@ Once that's done, all IO operations performed by kantan.csv will be BOM aware:
 For example:
 
 ```scala mdoc:silent
-import kantan.csv._
-import kantan.csv.ops._
+import kantan.csv.*
+import kantan.csv.ops.*
 import scala.io.Codec
 
 // Let kantan.csv know that data should be written in UTF-8
