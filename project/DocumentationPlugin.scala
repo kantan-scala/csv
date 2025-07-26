@@ -40,7 +40,7 @@ object DocumentationPlugin extends AutoPlugin {
     PreprocessPlugin && MdocPlugin
 
   object autoImport {
-    def kantanCsvVersion = "0.9.0"
+    def kantanCsvVersion = "0.10.0"
 
     /** This is mostly meant as an internal setting, initialised if `scmInfo` is set. But you can override it. */
     val docSourceUrl: SettingKey[Option[String]] = settingKey("scalac -doc-source-url parameter")
