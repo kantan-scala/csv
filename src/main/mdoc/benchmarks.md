@@ -97,7 +97,7 @@ serialized.
 | [uniVocity]              |     29.19 |
 
 [commons csv]:https://commons.apache.org/proper/commons-csv/
-[jackson csv]:https://github.com/FasterXML/jackson-dataformat-csv
+[jackson csv]:https://github.com/FasterXML/jackson-dataformats-text
 [opencsv]:http://opencsv.sourceforge.net
 [scala csv]:https://github.com/tototoshi/scala-csv
 [uniVocity]:https://github.com/uniVocity/uniVocity-parsers
