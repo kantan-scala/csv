@@ -43,13 +43,6 @@ object DocumentationPlugin extends AutoPlugin {
   object autoImport {
     def kantanCsvVersion = "0.10.0"
 
-    /** This is mostly meant as an internal setting, initialised if `scmInfo` is
-      * set. But you can override it.
-      */
-    val docSourceUrl: SettingKey[Option[String]] = settingKey(
-      "scalac -doc-source-url parameter"
-    )
-
     def inProjectsIf(
       predicate: Boolean
     )(projects: ProjectReference*): ProjectFilter =
@@ -68,7 +61,7 @@ object DocumentationPlugin extends AutoPlugin {
   import autoImport.*
 
   override def projectSettings: Seq[Setting[?]] =
-    scaladocSettings ++ mdocSettings ++ siteSettings
+    mdocSettings ++ siteSettings
 
   def siteSettings: Seq[Setting[?]] =
     Seq(
@@ -100,12 +93,5 @@ object DocumentationPlugin extends AutoPlugin {
         "VERSION" -> kantanCsvVersion
       ),
       addMappingsToSiteDir(mdocSite, mdocSiteOut)
-    )
-
-  def scaladocSettings: Seq[Setting[?]] =
-    Seq(
-      docSourceUrl := scmInfo.value.map(i =>
-        s"${i.browseUrl}/tree/master€{FILE_PATH}.scala"
-      )
     )
 }
