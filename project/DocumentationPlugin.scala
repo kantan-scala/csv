@@ -24,7 +24,6 @@ import mdoc.MdocPlugin
 import mdoc.MdocPlugin.autoImport.*
 import sbt.*
 import sbt.Keys.*
-import sbt.ScopeFilter.ProjectFilter
 
 /** Plugin for documentation projects.
   *
@@ -43,11 +42,6 @@ object DocumentationPlugin extends AutoPlugin {
   object autoImport {
     def kantanCsvVersion = "0.10.0"
 
-    def inProjectsIf(
-      predicate: Boolean
-    )(projects: ProjectReference*): ProjectFilter =
-      if(predicate) inProjects(projects*)
-      else inProjects()
     val mdocSite: TaskKey[Seq[(File, String)]] =
       taskKey[Seq[(File, String)]](
         "create mdoc documentation in a way that lets sbt-site grab it"
