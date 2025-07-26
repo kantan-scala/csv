@@ -108,4 +108,4 @@ implicit val writerEngine: WriterEngine = WriterEngine.from { (writer: Writer, c
 [`CsvReader.fromResource`]:{{ site.baseurl }}/api/#kantan.csv.CsvReader$@fromResource[I,R](in:I)(open:I=>Iterator[R])(release:I=>Unit):kantan.csv.CsvReader[kantan.csv.ParseResult[R]]
 [`WriterEngine.from`]:{{ site.baseurl }}/api/kantan/csv/engine/WriterEngine$.html#from(f:(java.io.Writer,Char)=>kantan.csv.CsvWriter[Seq[String]]):kantan.csv.engine.WriterEngine
 [`CsvWriter.apply`]:{{ site.baseurl }}/api/kantan/csv/CsvWriter$.html#apply[A](out:A)(w:(A,Seq[String])=>Unit)(r:A=>Unit):kantan.csv.CsvWriter[Seq[String]]
-[`ResourceIterator.fromIterator`]:http://nrinaudo.github.io/kantan.codecs/api/kantan/codecs/resource/ResourceIterator$.html#fromIterator[A](as:Iterator[A]):kantan.codecs.resource.ResourceIterator[A]
+[`ResourceIterator.fromIterator`]:https://javadoc.io/doc/io.github.kantan-scala/kantan.codecs_3/latest/kantan/codecs/resource/ResourceIterator$.html
