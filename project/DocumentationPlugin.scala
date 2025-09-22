@@ -40,7 +40,7 @@ object DocumentationPlugin extends AutoPlugin {
     PreprocessPlugin && MdocPlugin
 
   object autoImport {
-    def kantanCsvVersion = "0.10.0"
+    def kantanCsvVersion = "0.11.0"
 
     val mdocSite: TaskKey[Seq[(File, String)]] =
       taskKey[Seq[(File, String)]](
