@@ -21,7 +21,7 @@ jobs:
           distribution: adopt
       - uses: sbt/setup-sbt@v1
       - run: sbt -v scalafmtCheckAll scalafmtSbtCheck makeSite
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/jekyll-build-pages@v1
         with:
           source: "target/site"
