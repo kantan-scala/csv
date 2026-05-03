@@ -25,4 +25,4 @@ libraryDependencies ++= Seq(
 )
 
 Compile / scalafmt / unmanagedSourceDirectories += mdocIn.value
-Compile / scalafmt / unmanagedSources ++= (mdocIn.value ** "*.md").get
+Compile / scalafmt / unmanagedSources ++= (mdocIn.value ** "*.md").get()
