@@ -42,8 +42,9 @@ object DocumentationPlugin extends AutoPlugin {
   object autoImport {
     def kantanCsvVersion = "0.12.0"
 
-    val mdocSite: TaskKey[Seq[(File, String)]] =
-      taskKey[Seq[(File, String)]](
+    @transient
+    val mdocSite: TaskKey[Seq[(HashedVirtualFileRef, String)]] =
+      taskKey[Seq[(HashedVirtualFileRef, String)]](
         "create mdoc documentation in a way that lets sbt-site grab it"
       )
     val mdocSiteOut: SettingKey[String] =
@@ -64,6 +65,7 @@ object DocumentationPlugin extends AutoPlugin {
           "*.woff" | "*.woff2" | "*.otf",
       // Configures task dependencies: doc → makeSite → mdoc
       makeSite := makeSite.dependsOn(mdocSite).value,
+      makeSite / target := file("target") / "site",
       // Use a "managed" source directory for preprocessing - we want all documentation to be preprocessed, and the only
       // way I found to achieve that is to have all md files to be copied / generated to the same directory, and *then*
       // preprocess that.
@@ -74,10 +76,11 @@ object DocumentationPlugin extends AutoPlugin {
     Seq(
       mdocSite := {
         val out = mdocOut.value
+        val converter = fileConverter.value
         for {
           (file, name) <- (out ** AllPassFilter --- out)
             .pair(Path.relativeTo(out))
-        } yield file -> name
+        } yield converter.toVirtualFile(file.toPath) -> name
       },
       mdocSite := mdocSite.dependsOn(mdoc.toTask(" ")).value,
       mdocExtraArguments += "--no-link-hygiene",
