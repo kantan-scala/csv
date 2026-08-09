@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-java@v5
         with:
           java-version: 21
-          distribution: adopt
+          distribution: temurin
       - uses: sbt/setup-sbt@v1
       - run: sbt -v scalafmtCheckAll scalafmtSbtCheck makeSite
       - uses: actions/configure-pages@v6
